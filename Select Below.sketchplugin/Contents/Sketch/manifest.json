@@ -1,0 +1,23 @@
+{
+  "author" : "Florian Schulz",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift b",
+      "name" : "Select Below",
+      "identifier" : "select-below"
+    },
+  ],
+  "menu": {
+    "isRoot": true,
+    "items": [
+      "select-below",
+    ],
+  },
+  "identifier" : "com.getflourish.select",
+  "version" : "1.0",
+  "description" : "Collection of commands for selecting layers.",
+  "authorEmail" : "mail@getflourish.com",
+  "name" : "Select"
+}
