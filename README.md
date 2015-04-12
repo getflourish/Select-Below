@@ -1,6 +1,6 @@
 # Select below
 
-This plugin selects all layers below the mouse position or below the currently selected layer.
+This plugin for Sketch 3.3+ selects all layers below the mouse position or below the currently selected layer.
 To learn more about custom selections in Sketch, I recommend you to read [this article](https://medium.com/@getflourish/custom-selections-in-sketch-a01f3e09e98d)
 
 ## Below mouse
