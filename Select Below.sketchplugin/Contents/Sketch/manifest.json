@@ -8,11 +8,19 @@
       "name" : "Select Below",
       "identifier" : "select-below"
     },
+    {
+      "script" : "below-mouse.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift m",
+      "name" : "Select Below Mouse",
+      "identifier" : "select-below-mouse"
+    },
   ],
   "menu": {
     "isRoot": true,
     "items": [
       "select-below",
+      "select-below-mouse"
     ],
   },
   "identifier" : "com.getflourish.select",

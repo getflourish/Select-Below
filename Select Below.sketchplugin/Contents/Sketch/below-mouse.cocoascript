@@ -1,0 +1,25 @@
+@import "library.cocoascript";
+
+var onRun = function(context) {
+
+  var doc = context.document;
+
+  // set the scope to the layer group that the currently selected layer is in
+  var scope = doc.currentPage().currentArtboard().children();
+
+  // calculate the bottom position of the selected layer
+  var handler = doc.eventHandlerManager().normalHandler();
+  var page = doc.currentPage();
+  var container = (page.currentArtboard()) ? page.currentArtboard() : page;
+  var point = handler.mouseInScreenCoordinatesInGroup(container);
+
+  // for some reason, we need to add container y position to the calculation
+  var bottom = point.y + container.frame().y();
+
+  // set up the predicate and receive an array of matched layers
+  var predicate = NSPredicate.predicateWithFormat("absoluteRect.y > %@ && className != %@", bottom, "MSLayerGroup");
+  var queryResult = scope.filteredArrayUsingPredicate(predicate);
+
+  // select all layers that match the query
+  doc.currentPage().selectLayers(queryResult);
+};
