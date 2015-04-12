@@ -17,7 +17,10 @@ var onRun = function(context) {
   var bottom = point.y + container.frame().y();
 
   // set up the predicate and receive an array of matched layers
-  var predicate = NSPredicate.predicateWithFormat("absoluteRect.y > %@ && className != %@", bottom, "MSLayerGroup");
+  // because Sketch gets confused when layers and their parent group are selected,
+  // we need to make sure to only select single layers if their containing group does not
+  // match the position filter.
+  var predicate = NSPredicate.predicateWithFormat("absoluteRect.y > %@ && parentGroup.absoluteRect.y < %@", bottom, bottom);
   var queryResult = scope.filteredArrayUsingPredicate(predicate);
 
   // select all layers that match the query
